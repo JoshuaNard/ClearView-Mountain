@@ -1,10 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5cffru314j3f"]
+[gd_scene load_steps=22 format=3 uid="uid://c5cffru314j3f"]
 
 [ext_resource type="Script" path="res://GameJam/scripts/CharacterController.cs" id="1_oxxlw"]
 [ext_resource type="Texture2D" uid="uid://bwro2rj8ea635" path="res://Art/Player/spritesheet3.png" id="2_xdenw"]
+[ext_resource type="Texture2D" uid="uid://bfywrbvofd2xh" path="res://Art/Misc/progressBar.png" id="3_ej2lw"]
+[ext_resource type="Texture2D" uid="uid://g3hwak2kfx7l" path="res://Art/Misc/progressBarOver.png" id="4_0b2p0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7b37"]
-size = Vector2(15, 32.5)
+size = Vector2(15, 30.2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50j0w"]
 atlas = ExtResource("2_xdenw")
@@ -26,14 +28,6 @@ region = Rect2(128, 0, 16, 32)
 atlas = ExtResource("2_xdenw")
 region = Rect2(144, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kw48t"]
-atlas = ExtResource("2_xdenw")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8vppq"]
-atlas = ExtResource("2_xdenw")
-region = Rect2(16, 0, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_n36at"]
 atlas = ExtResource("2_xdenw")
 region = Rect2(160, 0, 16, 32)
@@ -42,7 +36,11 @@ region = Rect2(160, 0, 16, 32)
 atlas = ExtResource("2_xdenw")
 region = Rect2(176, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ns1x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_caar7"]
+atlas = ExtResource("2_xdenw")
+region = Rect2(160, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhabf"]
 atlas = ExtResource("2_xdenw")
 region = Rect2(96, 0, 16, 32)
 
@@ -99,29 +97,25 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kw48t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8vppq")
-}, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_n36at")
 }, {
-"duration": 1.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_uic57")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_caar7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n36at")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8vppq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ns1x")
+"texture": SubResource("AtlasTexture_qhabf")
 }],
 "loop": false,
-"name": &"jump",
+"name": &"postJump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -164,12 +158,32 @@ scale = Vector2(5, 5)
 script = ExtResource("1_oxxlw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(9, 16.25)
+position = Vector2(-0.2, -9.53674e-07)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_q7b37")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(9, 15)
+position = Vector2(0.200001, 0.200001)
 sprite_frames = SubResource("SpriteFrames_4pmsf")
-animation = &"falling"
+animation = &"jump"
 frame = 1
-frame_progress = 0.963095
+frame_progress = 0.212957
+
+[node name="JumpProgress" type="TextureProgressBar" parent="CharacterBody2D"]
+texture_filter = 1
+offset_left = 5.2
+offset_top = -14.0
+offset_right = 21.2
+offset_bottom = 18.0
+scale = Vector2(0.63721, 0.640553)
+min_value = 1.0
+value = 1.0
+fill_mode = 7
+texture_under = ExtResource("3_ej2lw")
+texture_over = ExtResource("4_0b2p0")
+texture_progress = ExtResource("3_ej2lw")
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(1, 0.97, 1, 1)
+tint_progress = Color(0, 0.74902, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
