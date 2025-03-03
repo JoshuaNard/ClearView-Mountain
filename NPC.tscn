@@ -1,0 +1,192 @@
+[gd_scene load_steps=22 format=3 uid="uid://ylbojyexvkkw"]
+
+[ext_resource type="Script" path="res://GameJam/scripts/NPC.cs" id="1_ehc4x"]
+[ext_resource type="Texture2D" uid="uid://culy8shqngm5a" path="res://Art/Player/bob.png" id="2_h6ckq"]
+[ext_resource type="Texture2D" uid="uid://bereto4g6j1pf" path="res://Art/Misc/interact.png" id="2_wskwb"]
+[ext_resource type="Texture2D" uid="uid://c4dmnh34a5nt3" path="res://Art/Misc/textBox.png" id="3_0iph5"]
+[ext_resource type="Texture2D" uid="uid://ce5j746vcnna4" path="res://Art/Misc/goldBoots.png" id="3_d0qnp"]
+[ext_resource type="FontFile" uid="uid://d07kmqw3y3bid" path="res://Art/Fonts/minecraft/Minecraft.ttf" id="3_qijso"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omvlo"]
+atlas = ExtResource("2_wskwb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pmd3"]
+atlas = ExtResource("2_wskwb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64x7d"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_omvlo")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_8pmd3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k00mm"]
+atlas = ExtResource("2_h6ckq")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w0wh"]
+atlas = ExtResource("2_h6ckq")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6oye"]
+atlas = ExtResource("2_h6ckq")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1hq2"]
+atlas = ExtResource("2_h6ckq")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wykhq"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_k00mm")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_4w0wh")
+}],
+"loop": true,
+"name": &"has beer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_h6oye")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_r1hq2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3cyx"]
+size = Vector2(16, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcv4r"]
+size = Vector2(92, 66)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8onr"]
+texture = ExtResource("3_0iph5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ebso"]
+bg_color = Color(0, 0, 0, 0.47451)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+anti_aliasing_size = 0.949
+
+[sub_resource type="Theme" id="Theme_o1py4"]
+default_font = ExtResource("3_qijso")
+default_font_size = 76
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 96
+Button/styles/normal = SubResource("StyleBoxFlat_7ebso")
+
+[sub_resource type="FontVariation" id="FontVariation_8phnf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dcr5m"]
+font = ExtResource("3_qijso")
+font_size = 96
+shadow_size = 0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ehc4x")
+
+[node name="interactable" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -30)
+sprite_frames = SubResource("SpriteFrames_64x7d")
+frame_progress = 0.664197
+
+[node name="goldboots" type="Sprite2D" parent="."]
+position = Vector2(27, 8)
+texture = ExtResource("3_d0qnp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wykhq")
+animation = &"idle"
+frame_progress = 0.393359
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_f3cyx")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -12)
+shape = SubResource("RectangleShape2D_xcv4r")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 19.0
+offset_top = -48.0
+offset_right = 142.0
+offset_bottom = -18.0
+
+[node name="Panel" type="Panel" parent="Control"]
+z_index = 5
+layout_mode = 0
+offset_left = -22.0
+offset_top = -43.0
+offset_right = 106.0
+offset_bottom = 37.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w8onr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+clip_contents = true
+layout_mode = 0
+offset_left = 41.0
+offset_top = 45.0
+offset_right = 1621.0
+offset_bottom = 405.0
+scale = Vector2(0.05, 0.05)
+theme = SubResource("Theme_o1py4")
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="Control/Panel"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 23.0
+offset_top = 22.0
+offset_right = 1683.0
+offset_bottom = 442.0
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/font = SubResource("FontVariation_8phnf")
+theme_override_font_sizes/font_size = 1
+label_settings = SubResource("LabelSettings_dcr5m")
+autowrap_mode = 2
+visible_characters_behavior = 3

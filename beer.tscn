@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://broygg76sav1a"]
+
+[ext_resource type="Script" path="res://GameJam/scripts/beer.cs" id="1_e8rpo"]
+[ext_resource type="Texture2D" uid="uid://bereto4g6j1pf" path="res://Art/Misc/interact.png" id="1_swft1"]
+[ext_resource type="Texture2D" uid="uid://d3efr0xekk5di" path="res://Art/Misc/beer.png" id="3_26klm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itt2m"]
+atlas = ExtResource("1_swft1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwbyj"]
+atlas = ExtResource("1_swft1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwf1f"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_itt2m")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fwbyj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j83td"]
+radius = 24.0208
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_e8rpo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_gwf1f")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(-1, 10.4)
+texture = ExtResource("3_26klm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j83td")

@@ -1,12 +1,73 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5cffru314j3f"]
+[gd_scene load_steps=46 format=3 uid="uid://c5cffru314j3f"]
 
 [ext_resource type="Script" path="res://GameJam/scripts/CharacterController.cs" id="1_oxxlw"]
+[ext_resource type="Texture2D" uid="uid://b6oqnobf7hnmq" path="res://Art/Player/goldenboots.png" id="2_srgjg"]
 [ext_resource type="Texture2D" uid="uid://bwro2rj8ea635" path="res://Art/Player/spritesheet3.png" id="2_xdenw"]
 [ext_resource type="Texture2D" uid="uid://bfywrbvofd2xh" path="res://Art/Misc/progressBar.png" id="3_ej2lw"]
 [ext_resource type="Texture2D" uid="uid://g3hwak2kfx7l" path="res://Art/Misc/progressBarOver.png" id="4_0b2p0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7b37"]
-size = Vector2(15, 30.2)
+size = Vector2(14.05, 30.75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8i0r"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ahhk"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr0tl"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crmno"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wn6p"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a1bn"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(160, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4p0w"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(176, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkiaj"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(160, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foslk"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnjf8"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctteu"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl1lq"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkrib"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0nma"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih3la"]
+atlas = ExtResource("2_srgjg")
+region = Rect2(80, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50j0w"]
 atlas = ExtResource("2_xdenw")
@@ -68,9 +129,97 @@ region = Rect2(80, 0, 16, 32)
 atlas = ExtResource("2_xdenw")
 region = Rect2(64, 0, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2647u"]
+atlas = ExtResource("2_xdenw")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpn40"]
+atlas = ExtResource("2_xdenw")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw4wp"]
+atlas = ExtResource("2_xdenw")
+region = Rect2(80, 0, 16, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4pmsf"]
 resource_local_to_scene = true
 animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_g8i0r")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_8ahhk")
+}],
+"loop": true,
+"name": &"GoldIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr0tl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crmno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wn6p")
+}],
+"loop": true,
+"name": &"Goldfalling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a1bn")
+}, {
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_c4p0w")
+}],
+"loop": true,
+"name": &"Goldjump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkiaj")
+}, {
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_foslk")
+}],
+"loop": true,
+"name": &"GoldpostJump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_fnjf8")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_ctteu")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_vl1lq")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_ctteu")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_fnjf8")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_rkrib")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_y0nma")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_ih3la")
+}],
+"loop": true,
+"name": &"Goldwalk",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 3.0,
 "texture": SubResource("AtlasTexture_50j0w")
@@ -111,7 +260,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_caar7")
 }, {
-"duration": 1.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_qhabf")
 }],
 "loop": false,
@@ -146,7 +295,51 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2647u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpn40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2647u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw4wp")
+}],
+"loop": true,
+"name": &"walkin",
+"speed": 5.0
 }]
+
+[sub_resource type="Curve" id="Curve_xtygj"]
+_data = [Vector2(0.0347826, 1), 0.0, 0.0, 0, 0, Vector2(0.991304, 0.107265), -2.26258, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yy816"]
+curve = SubResource("Curve_xtygj")
+
+[sub_resource type="Gradient" id="Gradient_jcktk"]
+offsets = PackedFloat32Array(0.753943, 0.810726)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.65098)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_88rno"]
+gradient = SubResource("Gradient_jcktk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0jeo3"]
+emission_shape_scale = Vector3(700, 100, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(45, 98, 0)
+scale_min = 2.0
+scale_max = 7.0
+color_initial_ramp = SubResource("GradientTexture1D_88rno")
+alpha_curve = SubResource("CurveTexture_yy816")
+turbulence_enabled = true
+turbulence_influence_min = 0.02
+turbulence_influence_max = 0.08
 
 [node name="Player" type="Node2D"]
 texture_filter = 1
@@ -154,22 +347,21 @@ texture_filter = 1
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 texture_filter = 1
 position = Vector2(1, 0)
-scale = Vector2(5, 5)
+scale = Vector2(4, 4)
+disable_mode = 1
 script = ExtResource("1_oxxlw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.2, -9.53674e-07)
-scale = Vector2(1, 1)
+position = Vector2(0.275, -0.125)
 shape = SubResource("RectangleShape2D_q7b37")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(0.200001, 0.200001)
 sprite_frames = SubResource("SpriteFrames_4pmsf")
-animation = &"jump"
-frame = 1
-frame_progress = 0.212957
+animation = &"GoldIdle"
 
 [node name="JumpProgress" type="TextureProgressBar" parent="CharacterBody2D"]
+z_index = 20
 texture_filter = 1
 offset_left = 5.2
 offset_top = -14.0
@@ -186,4 +378,20 @@ tint_under = Color(0, 0, 0, 1)
 tint_over = Color(1, 0.97, 1, 1)
 tint_progress = Color(0, 0.74902, 0, 1)
 
+[node name="Snow" type="GPUParticles2D" parent="CharacterBody2D"]
+z_as_relative = false
+position = Vector2(100.75, -165.5)
+scale = Vector2(0.997387, 1)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_0jeo3")
+lifetime = 12.0
+preprocess = 30.9
+
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(68, -25.5)
+scale = Vector2(0.997387, 1)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+rotation_smoothing_speed = 2.0
+editor_draw_drag_margin = true

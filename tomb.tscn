@@ -1,0 +1,172 @@
+[gd_scene load_steps=19 format=3 uid="uid://dsgi6khk3vt5m"]
+
+[ext_resource type="Script" path="res://GameJam/scripts/tomb.cs" id="1_5wq8o"]
+[ext_resource type="Texture2D" uid="uid://bereto4g6j1pf" path="res://Art/Misc/interact.png" id="2_2ug4v"]
+[ext_resource type="Texture2D" uid="uid://412q7yk6tgse" path="res://Art/Misc/tombstone.png" id="3_shasy"]
+[ext_resource type="Texture2D" uid="uid://c4dmnh34a5nt3" path="res://Art/Misc/textBox.png" id="4_st3sy"]
+[ext_resource type="FontFile" uid="uid://d07kmqw3y3bid" path="res://Art/Fonts/minecraft/Minecraft.ttf" id="5_o7icd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vcr3"]
+texture = ExtResource("4_st3sy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fq3uh"]
+bg_color = Color(0, 0, 0, 0.47451)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+anti_aliasing_size = 0.949
+
+[sub_resource type="Theme" id="Theme_4f4gp"]
+default_font = ExtResource("5_o7icd")
+default_font_size = 76
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 96
+Button/styles/normal = SubResource("StyleBoxFlat_fq3uh")
+
+[sub_resource type="FontVariation" id="FontVariation_dl476"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i7fch"]
+font = ExtResource("5_o7icd")
+font_size = 96
+shadow_size = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omvlo"]
+atlas = ExtResource("2_2ug4v")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pmd3"]
+atlas = ExtResource("2_2ug4v")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rqu0"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_omvlo")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_8pmd3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu7wf"]
+atlas = ExtResource("3_shasy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcw87"]
+atlas = ExtResource("3_shasy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xqil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu7wf")
+}],
+"loop": true,
+"name": &"clean",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcw87")
+}],
+"loop": true,
+"name": &"dirty",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcg1y"]
+size = Vector2(10.5, 11.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rj4n"]
+size = Vector2(92, 66)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_5wq8o")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 19.0
+offset_top = -49.0
+offset_right = 142.0
+offset_bottom = -19.0
+
+[node name="Panel" type="Panel" parent="Control"]
+z_index = 5
+layout_mode = 0
+offset_left = -22.0
+offset_top = -43.0
+offset_right = 106.0
+offset_bottom = 37.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4vcr3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+clip_contents = true
+layout_mode = 0
+offset_left = 26.0
+offset_top = 45.0
+offset_right = 1606.0
+offset_bottom = 405.0
+scale = Vector2(0.05, 0.05)
+theme = SubResource("Theme_4f4gp")
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="Control/Panel"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 23.0
+offset_top = 22.0
+offset_right = 1683.0
+offset_bottom = 442.0
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/font = SubResource("FontVariation_dl476")
+theme_override_font_sizes/font_size = 1
+label_settings = SubResource("LabelSettings_i7fch")
+autowrap_mode = 2
+visible_characters_behavior = 3
+
+[node name="interactable" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -30)
+sprite_frames = SubResource("SpriteFrames_4rqu0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -14)
+sprite_frames = SubResource("SpriteFrames_1xqil")
+animation = &"clean"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -13)
+shape = SubResource("RectangleShape2D_mcg1y")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -12)
+shape = SubResource("RectangleShape2D_4rj4n")

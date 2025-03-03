@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxreuqg5pv1q0"]
+
+[ext_resource type="FontFile" uid="uid://d07kmqw3y3bid" path="res://Art/Fonts/minecraft/Minecraft.ttf" id="2_jxdr5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_25p2c"]
+font = ExtResource("2_jxdr5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_isvxw"]
+font = ExtResource("2_jxdr5")
+font_size = 232
+
+[node name="ColorRect" type="ColorRect"]
+offset_right = 576.0
+offset_bottom = 320.0
+scale = Vector2(3.5, 3.5)
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 177.143
+offset_top = 146.0
+offset_right = 421.143
+offset_bottom = 174.0
+text = "Thank you so much for playing!"
+label_settings = SubResource("LabelSettings_25p2c")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 202.286
+offset_top = 191.143
+offset_right = 4179.29
+offset_bottom = 1483.14
+scale = Vector2(0.05, 0.05)
+text = "There are multiple endings to the game based on the  responses you choose, so feel free to play again if you enjoyed!"
+label_settings = SubResource("LabelSettings_isvxw")
+autowrap_mode = 2

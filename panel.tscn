@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://smohsjlweiab"]
+
+[ext_resource type="Script" path="res://GameJam/scripts/Panel.cs" id="1_iivwu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yvgcj"]
+font_size = 24
+shadow_size = 0
+
+[node name="Panel" type="Panel"]
+offset_left = 367.0
+offset_top = 81.0
+offset_right = 617.0
+offset_bottom = 121.0
+script = ExtResource("1_iivwu")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = -3.0
+offset_right = 250.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 1
+label_settings = SubResource("LabelSettings_yvgcj")
+autowrap_mode = 2
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 250.0
+offset_bottom = 80.0
+
+[node name="Timer" type="Timer" parent="."]

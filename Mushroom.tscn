@@ -1,0 +1,202 @@
+[gd_scene load_steps=31 format=4 uid="uid://d1v17357jh8i2"]
+
+[ext_resource type="Texture2D" uid="uid://d0n37lekd2l7a" path="res://Art/Misc/specialSHroom.png" id="1_753cu"]
+[ext_resource type="Script" path="res://GameJam/scripts/Mushroom.cs" id="1_h30rt"]
+[ext_resource type="Texture2D" uid="uid://bereto4g6j1pf" path="res://Art/Misc/interact.png" id="2_cqqw7"]
+[ext_resource type="Texture2D" uid="uid://dhfym8knquuma" path="res://Art/Misc/MUSHROOMS.png" id="3_m005c"]
+[ext_resource type="Texture2D" uid="uid://dyabfhvthg10o" path="res://Art/Misc/mushroom floor.png" id="4_1x0dr"]
+[ext_resource type="Texture2D" uid="uid://cb6ubtmjph6jc" path="res://Art/Misc/mushroom floor good.png" id="5_sih8i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7weeu"]
+atlas = ExtResource("1_753cu")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oegh2"]
+atlas = ExtResource("1_753cu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yigk5"]
+atlas = ExtResource("1_753cu")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlu7q"]
+atlas = ExtResource("1_753cu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efwgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7weeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oegh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yigk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlu7q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62wjy"]
+atlas = ExtResource("2_cqqw7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ray6l"]
+atlas = ExtResource("2_cqqw7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_to7vl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62wjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ray6l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y3epu"]
+texture = ExtResource("3_m005c")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h0ayx"]
+texture = ExtResource("4_1x0dr")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2ua7"]
+texture = ExtResource("5_sih8i")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g3dux"]
+sources/0 = SubResource("TileSetAtlasSource_y3epu")
+sources/1 = SubResource("TileSetAtlasSource_h0ayx")
+sources/2 = SubResource("TileSetAtlasSource_i2ua7")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jihg"]
+texture = ExtResource("4_1x0dr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3tyc"]
+texture = ExtResource("5_sih8i")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ncapn"]
+sources/1 = SubResource("TileSetAtlasSource_7jihg")
+sources/2 = SubResource("TileSetAtlasSource_b3tyc")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hydrk"]
+texture = ExtResource("5_sih8i")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2jvk3"]
+sources/0 = SubResource("TileSetAtlasSource_hydrk")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l255d"]
+radius = 29.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gcbyv"]
+
+[sub_resource type="Gradient" id="Gradient_o7i3m"]
+offsets = PackedFloat32Array(0, 0.220779, 0.415584, 0.662338, 0.844156, 1)
+colors = PackedColorArray(0.93, 0.93, 0.93, 0.796078, 0, 0.845667, 0.86, 0.8, 0.034, 0.6868, 0.85, 0.760784, 0.05, 0.5725, 1, 0.772549, 0.031, 0.23715, 0.62, 0.8, 0, 0, 0, 0.823529)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8b36d"]
+gradient = SubResource("Gradient_o7i3m")
+width = 75
+height = 75
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_vywat"]
+offsets = PackedFloat32Array(0.44164, 1)
+colors = PackedColorArray(0.00809999, 0.75654, 0.81, 1, 0.0744, 0.25978, 0.93, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sikg1"]
+gradient = SubResource("Gradient_vywat")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6d0es"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 1)
+initial_velocity_min = -15.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, -20, 0)
+scale_min = 2.0
+scale_max = 4.0
+color = Color(0.37, 1, 0.9475, 1)
+color_ramp = SubResource("GradientTexture1D_sikg1")
+
+[node name="Mushroom" type="CharacterBody2D"]
+script = ExtResource("1_h30rt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_efwgc")
+frame_progress = 0.310461
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -13)
+sprite_frames = SubResource("SpriteFrames_to7vl")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAAEAAAAAAD//wAAAAADAAAAAAD+/wAAAAAFAAAAAAD9/wAAAgACAAAAABACAAAAAgACAAAAAAA=")
+tile_set = SubResource("TileSet_g3dux")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+z_index = -2
+tile_map_data = PackedByteArray("AAD+/wAAAQAAAAAAAAD//wAAAQABAAAAAAAAAAAAAQACAAAAAAABAAAAAQADAAAAAAA=")
+tile_set = SubResource("TileSet_ncapn")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_2jvk3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l255d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_gcbyv")
+disabled = true
+
+[node name="Light2D" type="PointLight2D" parent="."]
+position = Vector2(0, 5)
+texture = SubResource("GradientTexture2D_8b36d")
+texture_scale = 5.6
+
+[node name="flow" type="GPUParticles2D" parent="."]
+position = Vector2(0, -5)
+process_material = SubResource("ParticleProcessMaterial_6d0es")
+lifetime = 1.5
+trail_lifetime = 0.06
