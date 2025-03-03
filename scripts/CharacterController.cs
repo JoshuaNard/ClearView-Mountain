@@ -5,11 +5,18 @@ public partial class CharacterController : CharacterBody2D
 {
 	public const float Speed = 325.0f;
 	public const float MinJumpVelocity = -400.0f;
+<<<<<<< Updated upstream
 	public const float MaxJumpVelocity = -800.0f;
 	private float Gravity = 980f;
 	private GpuParticles2D Snow;
 
 	private Vector2 respawnPoint = Vector2.Zero;
+=======
+	public const float MaxJumpVelocty = -800.0f;
+	private const float Gravity = 980f;
+
+	private TileMapLayer deathLayer;
+>>>>>>> Stashed changes
 
 	private TextureProgressBar JumpProgressBar;
 	public float JumpProgress = 0f;
@@ -25,6 +32,7 @@ public partial class CharacterController : CharacterBody2D
 	{
 		charAnim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		JumpProgressBar = GetNode<TextureProgressBar>("JumpProgress");
+<<<<<<< Updated upstream
 		Snow = GetNodeOrNull<GpuParticles2D>("Snow");
 		Area2D deathBarrier = GetTree().GetFirstNodeInGroup("DeathBarrier") as Area2D;
 		Area2D antiSnow = GetTree().GetFirstNodeInGroup("antiSnowBarrier") as Area2D;
@@ -35,10 +43,17 @@ public partial class CharacterController : CharacterBody2D
 		GD.Print("Player added to group: player");
 		AddToGroup("player");
 
+=======
+		Area2D deathBarrier = GetTree().GetFirstNodeInGroup("DeathBarrier") as Area2D;
+		JumpProgressBar.Visible = false;
+		JumpProgressBar.Value = 0;
+
+>>>>>>> Stashed changes
 		if (deathBarrier != null)
 		{
 			deathBarrier.BodyEntered += OnDeathZoneEntered;
 		}
+<<<<<<< Updated upstream
 		if (snowBarrier != null)
 		{
 			snowBarrier.BodyEntered += isSnowing;
@@ -48,10 +63,13 @@ public partial class CharacterController : CharacterBody2D
 			antiSnow.BodyEntered += antiSnowing;
 		}
 
+=======
+>>>>>>> Stashed changes
 
 	}
 
 	public override void _PhysicsProcess(double delta)
+
 	{
 		Vector2 velocity = Velocity;
 
@@ -77,6 +95,7 @@ public partial class CharacterController : CharacterBody2D
 		// Handle Jump
 		if (Input.IsActionPressed("ui_accept") && IsOnFloor())
 		{
+<<<<<<< Updated upstream
 			if (JumpProgress > 5f)
 			{
 				JumpProgressBar.Visible = true;
@@ -90,11 +109,29 @@ public partial class CharacterController : CharacterBody2D
 			{
 				PlayAnimation("jump");
 			}
+=======
+			if(JumpProgress > 5f){
+				JumpProgressBar.Visible = true;
+			}
+			
+			JumpProgress = Mathf.Clamp(JumpProgress + FillRate * (float)delta, 0, MaxJumpProgress);
+			JumpProgressBar.Value = JumpProgress;
+			
+			
+			isJumping = true;
+			if(velocity.X == 0){
+				charAnim.Play("jump");
+			}
+			
+			
+			
+>>>>>>> Stashed changes
 		}
 		else
 		{
 			JumpProgressBar.Visible = false;
 		}
+<<<<<<< Updated upstream
 
 		if (Input.IsActionJustReleased("ui_accept") && IsOnFloor())
 		{
@@ -138,9 +175,57 @@ public partial class CharacterController : CharacterBody2D
 			}
 		}
 
+=======
+		if (Input.IsActionJustReleased("ui_accept") && IsOnFloor()){
+		
+		float jumpStrength = Mathf.Lerp(MinJumpVelocity, MaxJumpVelocty, JumpProgress / MaxJumpProgress );
+		velocity.Y = jumpStrength;
+		
+		JumpProgress = 0;
+		JumpProgressBar.Value = 0;
+		isJumping = false;
+		}
+			// Get the input direction and handle the movement/deceleration.
+			Vector2 direction = Input.GetVector("Move_Left", "Move_Right", "ui_up", "ui_down");
+			
+			// Rotate the sprite so it faces the right way based on users input
+			if(direction.X > 0 ){
+				Scale = new Vector2(4,4);
+				RotationDegrees = 0;
+
+				//face right
+			} else if(direction.X < 0 ){
+				Scale = new Vector2(4,-4);
+				RotationDegrees = 180;
+				//face left
+			}
+			
+			if (direction != Vector2.Zero)
+			{
+				velocity.X = direction.X * Speed;
+				if(IsOnFloor()){
+					charAnim.Play("walk");
+				}
+			}
+			else
+			{
+				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+				if(IsOnFloor() && velocity.X == 0 && !isJumping){
+				charAnim.Play("Idle");
+				}
+			}
+	
+>>>>>>> Stashed changes
 		Velocity = velocity;
 		MoveAndSlide();
+		}
+
+	private void OnDeathZoneEntered(Node body){
+		if(body == this){
+			CallDeferred(nameof(DieAndReset));
+		}
 	}
+<<<<<<< Updated upstream
 
 	private void PlayAnimation(string animationName)
 	{
@@ -211,4 +296,10 @@ public partial class CharacterController : CharacterBody2D
 	{
 		hasGoldBoots = value;
 	}
+=======
+	private void DieAndReset(){
+		GetTree().ReloadCurrentScene();
+	}
+
+>>>>>>> Stashed changes
 }
